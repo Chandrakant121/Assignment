@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema(
 );
 //==========================================
 userSchema.pre("save", function (next) {
+  // salt, hashing round
   const hash = bcrypt.hashSync(this.password, 8);
   this.password = hash;
   return next();
@@ -20,8 +21,8 @@ userSchema.pre("save", function (next) {
 
 userSchema.methods.checkPassword = function (password) {
   return bcrypt.compareSync(password, this.password);
+  // T OR F
 };
-
 //==============================================================
 
 const User = mongoose.model("user", userSchema);

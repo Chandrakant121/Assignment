@@ -1,5 +1,8 @@
 var jwt = require("jsonwebtoken");
 require("dotenv").config();
+//// oauth=> anyone using somebody authenticate system to authenticate my user 
+//ex. er sign in with google so that person sign in with google and google tells us that the person is 
+// verified and we are accepting that person info from google and giving sign in and login to person  
 
 const verifyToken = (token) => {
   return new Promise((resolve, reject) => {
@@ -33,7 +36,8 @@ const authenticate = async (req, res, next) => {
 
   try {
     decoded = await verifyToken(token);
-  } catch (err) {
+  }
+  catch (err) {
     console.log(err);
     return res
       .status(400)
@@ -42,8 +46,11 @@ const authenticate = async (req, res, next) => {
         status: false,
       });
   }
+
   req.user = decoded.user._id;
+  console.log(req.user)
   return next();
+
 };
 
 module.exports = authenticate;

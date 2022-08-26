@@ -3,12 +3,18 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const generateToken = (user) => {
+  //(user, token)
   return jwt.sign({ user }, process.env.SECRET_KEY);
 };
 
 //============================REGISTER==========================================
 const register = async (req, res) => {
   try {
+    //we will try to find user with email provides
+    //if the user is found then it is an err
+    //if not then we create user
+    //then create token
+    // by using token backend know the user
     let user = await User.findOne({ email: req.body.email });
     //checking email
     if (user) {
