@@ -9,6 +9,7 @@ function Login() {
     const [password, setPassword] = useState('')
 
     async function loginUser(event) {
+        // Clicking on a "Submit" button, prevent it from submitting a form.
         event.preventDefault()
         const response = await fetch('http://localhost:5000/login', {
             method: 'POST',
@@ -20,13 +21,13 @@ function Login() {
                 password,
             }),
         })
+        // got promise resolve
+        // console.log(data)
         const data = await response.json()
-        let logininfo = {
-            email: email
-        }
+        // console.log(data)
         if (data.user) {
-            localStorage.setItem("logindetail", JSON.stringify(logininfo))
-            console.log(data)
+            // localStorage.setItem("logindetail", JSON.stringify(logininfo))
+            // console.log(data)
             alert('Login successful')
             // window.location.href = '/dashboard'
             navigate("/dashboard")
@@ -35,7 +36,6 @@ function Login() {
         }
     }
 
-    
     return (
         <div>
             <Navbar></Navbar>

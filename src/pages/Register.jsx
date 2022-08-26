@@ -26,7 +26,14 @@ function Register() {
 			}),
 		})
 		const data = await res.json();
-
+		console.log(data)
+		if (data.status === false) {
+			alert("Email already exists")
+			setName("")
+			setEmail("")
+			setPassword("")
+			return
+		}
 		// let userinfo = {
 		// 	name: name,
 		// 	email: email

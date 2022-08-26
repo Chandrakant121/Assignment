@@ -23,8 +23,6 @@ const register = async (req, res) => {
       // console.log(token)
       return res.status(200).send({ user: user, token: token, status: true });
     }
-
-
   } catch (err) {
     res.status(400).send({ message: err.message });
   }
@@ -62,7 +60,7 @@ const userData = async (req, res) => {
     return res.status(200).send(users)
   }
   catch (err) {
-    res.status(400).send({ message: err.message });
+    return res.status(400).send({ message: err.message });
   }
 }
 
