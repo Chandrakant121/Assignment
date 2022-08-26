@@ -1,0 +1,15 @@
+.homepage {
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    font-size: 25px;
+    text-decoration: none;
+    background-color: rgb(242, 229, 108);
+    height: 60px;
+}
+
+.text {
+    text-decoration: none;
+    color: black;
+    padding-top: 10px;
+}
