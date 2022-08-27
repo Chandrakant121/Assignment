@@ -52,6 +52,9 @@ const login = async (req, res) => {
     }
     // if it matches then send res
     const token = generateToken(user);
+    if (user.email === "a@gmail.com") {
+      return res.status(200).send({ user: user.email, token: token, status: true });
+    }
     // console.log(user, token)
     return res.status(200).send({ user: user, token: token, status: true });
   }

@@ -24,13 +24,23 @@ function Login() {
         // got promise resolve
         // console.log(data)
         const data = await response.json()
-        // console.log(data)
+        console.log(data)
+
+
+        if (data.user === "a@gmail.com") {
+            navigate("/dashboard")
+        }
         if (data.user) {
             // localStorage.setItem("logindetail", JSON.stringify(logininfo))
             // console.log(data)
+            // if (data.email === "a@gmail.com") {
+            //     alert("admin")
+            //     navigate("/dashboard")
+            // }
+
             alert('Login successful')
             // window.location.href = '/dashboard'
-            navigate("/dashboard")
+            navigate("/")
         } else {
             alert('Please check your username and password')
         }
