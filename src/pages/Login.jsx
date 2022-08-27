@@ -27,9 +27,9 @@ function Login() {
         console.log(data)
 
 
-        if (data.user === "a@gmail.com") {
-            navigate("/dashboard")
-        }
+        // if (data.user === "a@gmail.com") {
+        //     navigate("/dashboard")
+        // }
         if (data.user) {
             // localStorage.setItem("logindetail", JSON.stringify(logininfo))
             // console.log(data)
@@ -40,7 +40,7 @@ function Login() {
 
             alert('Login successful')
             // window.location.href = '/dashboard'
-            navigate("/")
+            navigate("/dashboard")
         } else {
             alert('Please check your username and password')
         }
